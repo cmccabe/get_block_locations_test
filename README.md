@@ -16,15 +16,13 @@ You have to set some Java system properties when running the test.
 
 Here is an example of how to run the test:
 
-    ANT\_OPTS="-Dget.block.locations.path=/foo -Dhio.hdfs.uri=hdfs://localhost:8020" ant compile jar run
+    ANT\_OPTS="-Dget.block.locations.path=hdfs://localhost/foo" ant compile jar run
 
-It's also important to make sure libhadoop.so is in your LD\_LIBRARY\_PATH;
-otherwise, you won't get features like short-circuit local reads which are
-important for performance.
+You may also want libhadoop.so in your LD\_LIBRARY\_PATH.
 
 Alternately, you can directly run the jar with:
 
-    java -Dhio.nthreads=5 -Dhio.ngigs.to.read=1 -Dhio.ngigs.in.file=1 -Dhio.hdfs.uri=hdfs://localhost:6000 com.cloudera.HioBench
+    java -Dget.block.locations.path=hdfs://localhost/foo com.cloudera.GetBlockLocations
 
 Contact information
 -------------------------------------------------------------
